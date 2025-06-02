@@ -1,0 +1,26 @@
+{
+  "name": "sql-connector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently --kill-others \"tsc --watch\" \"node --watch dist/index.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.8.0",
+  "devDependencies": {
+    "@types/express": "5.0.2",
+    "concurrently": "9.1.2",
+    "express": "5.1.0",
+    "typescript": "5.8.3"
+  },
+  "dependencies": {
+    "@types/node": "22.15.29",
+    "pg": "8.16.0",
+    "prettier": "^3.5.3",
+    "reflect-metadata": "0.2.2",
+    "typeorm": "0.3.24"
+  }
+}
