@@ -16,5 +16,6 @@ export const AppDataSource = new DataSource({
 
   entities: [Desti],
   synchronize: true,
-  logging: false,
+  dropSchema: true,
+  logging: true,
 })
