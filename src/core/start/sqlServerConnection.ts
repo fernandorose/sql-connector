@@ -16,7 +16,9 @@ export const SqlServerDataSource = new DataSource({
   username: SQLSERVER_USERNAME,
   password: SQLSERVER_PASSWORD,
   database: SQLSERVER_NAME,
+
   entities: [Desti],
+
   synchronize: true,
   logging: true,
   options: {

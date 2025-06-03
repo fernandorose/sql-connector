@@ -13,12 +13,10 @@ export const PostgresDataSource = new DataSource({
   username: POSTGRES_USERNAME,
   password: POSTGRES_PASSWORD,
   database: POSTGRES_DATABASE_NAME,
+
   entities: [Desti],
+
   synchronize: true,
   dropSchema: true,
   logging: true,
-  // options: {
-  //   encrypt: true,
-  //   trustServerCertificate: true,
-  // },
 })
