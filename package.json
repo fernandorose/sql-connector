@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@types/node": "22.15.29",
+    "mssql": "^11.0.1",
     "pg": "8.16.0",
     "prettier": "^3.5.3",
     "reflect-metadata": "0.2.2",
