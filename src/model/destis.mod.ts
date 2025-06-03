@@ -2,7 +2,7 @@ import { Entity, PrimaryColumn, Column, PrimaryGeneratedColumn } from 'typeorm'
 
 @Entity({ name: 'F_DESTIs' })
 export class Desti {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('identity')
   CN_Numero: number
 
   @Column({ length: 50 })
@@ -23,7 +23,7 @@ export class Desti {
   @Column({ type: 'text', nullable: true })
   DX_Descripcion: string
 
-  @Column({ type: 'text', nullable: true })
+  @Column({ nullable: true })
   DX_Ahorros: string
 
   @Column({ length: 50, nullable: true })
@@ -41,13 +41,13 @@ export class Desti {
   @Column({ length: 100, nullable: true })
   DX_Responsable: string
 
-  @Column({ length: 50, nullable: true })
-  DX_Fecha_Creacion: string
+  @Column({ nullable: true })
+  DX_Fecha_Creacion: Date
+
+  @Column({ nullable: true })
+  DX_Fecha_Act: Date
 
   @Column({ length: 50, nullable: true })
-  DX_Fecha_Act: string
-
-  @Column({ length: 10, nullable: true })
   DX_Calificacion: string
 
   @Column({ type: 'text', nullable: true })
@@ -57,10 +57,10 @@ export class Desti {
   DX_Comentario_Rev: string
 
   @Column({ nullable: true })
-  DX_Fecha_Fin_Revision: string
+  DX_Fecha_Fin_Revision: Date
 
   @Column({ nullable: true })
-  DX_Fecha_Estimada: string
+  DX_Fecha_Estimada: Date
 
   @Column({ length: 50, nullable: true })
   DX_Hora_Estimada: string
@@ -69,7 +69,7 @@ export class Desti {
   DX_Comentario_Analisis: string
 
   @Column({ nullable: true })
-  DX_Fecha_Fin_Analisis: string
+  DX_Fecha_Fin_Analisis: Date
 
   @Column({ length: 50, nullable: true })
   DX_Hora_Desarrollo: string
@@ -78,14 +78,14 @@ export class Desti {
   DX_Comentario_Des: string
 
   @Column({ nullable: true })
-  DX_Fecha_Fin_Desarrollo: string
+  DX_Fecha_Fin_Desarrollo: Date
 
   @Column({ nullable: true })
-  DX_Fecha_Fin_Aprobacion: string
+  DX_Fecha_Fin_Aprobacion: Date
 
   @Column({ nullable: true })
-  DX_Fecha_Fin_Produccion: string
+  DX_Fecha_Fin_Produccion: Date
 
   @Column({ nullable: true })
-  DX_Fecha_Fin_Evaluacion: string
+  DX_Fecha_Fin_Evaluacion: Date
 }
