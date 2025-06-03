@@ -1,5 +1,6 @@
 import express, { Application } from 'express'
 import { AppDataSource } from './core/start/connection.ind'
+import desti from './routes/destis.routes'
 
 export class App {
   private static _instance: App
@@ -8,6 +9,7 @@ export class App {
   private constructor() {
     this.app = express()
     this.middlewares()
+    this.routes()
     this.conn()
   }
 
@@ -19,6 +21,10 @@ export class App {
 
   private middlewares() {
     this.app.use(express.json())
+  }
+
+  private routes() {
+    this.app.use('/api', desti)
   }
 
   private conn() {
