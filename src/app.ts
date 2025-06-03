@@ -1,6 +1,7 @@
 import express, { Application } from 'express'
-import { AppDataSource } from './core/start/connection.ind'
+import { PostgresDataSource } from './core/start/postgresConnection'
 import desti from './routes/destis.routes'
+import { SqlServerDataSource } from './core/start/sqlServerConnection'
 
 export class App {
   private static _instance: App
@@ -28,7 +29,14 @@ export class App {
   }
 
   private conn() {
-    AppDataSource.initialize()
+    PostgresDataSource.initialize()
+      .then(() => {
+        console.log('Data Source has been initialized!')
+      })
+      .catch((err) => {
+        console.error('Error during Data Source initialization', err)
+      })
+    SqlServerDataSource.initialize()
       .then(() => {
         console.log('Data Source has been initialized!')
       })
