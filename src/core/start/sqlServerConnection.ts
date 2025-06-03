@@ -12,7 +12,7 @@ import { Desti } from '../../model/destis.mod'
 export const SqlServerDataSource = new DataSource({
   type: 'mssql',
   host: 'localhost',
-  port: 5432,
+  port: 1433,
   username: SQLSERVER_USERNAME,
   password: SQLSERVER_PASSWORD,
   database: SQLSERVER_NAME,
