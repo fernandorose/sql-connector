@@ -31,14 +31,14 @@ export class App {
   private conn() {
     PostgresDataSource.initialize()
       .then(() => {
-        console.log('Data Source has been initialized!')
+        console.log('Postgres Data Source has been initialized!')
       })
       .catch((err) => {
         console.error('Error during Data Source initialization', err)
       })
     SqlServerDataSource.initialize()
       .then(() => {
-        console.log('Data Source has been initialized!')
+        console.log('SQL Server Data Source has been initialized!')
       })
       .catch((err) => {
         console.error('Error during Data Source initialization', err)
