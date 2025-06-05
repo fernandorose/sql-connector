@@ -19,9 +19,24 @@
   "dependencies": {
     "@types/node": "22.15.29",
     "mssql": "^11.0.1",
+    "node-cron": "^4.1.0",
     "pg": "8.16.0",
     "prettier": "^3.5.3",
     "reflect-metadata": "0.2.2",
     "typeorm": "0.3.24"
+  },
+  "_moduleAliases": {
+    "@modules/*": [
+      "./dist/modules/*"
+    ],
+    "@core/*": [
+      "./dist/core/*"
+    ],
+    "@modDestis/*": [
+      "./dist/modules/tic/modules/destis/*"
+    ],
+    "@config/*": [
+      "./dist/config/*"
+    ]
   }
 }
