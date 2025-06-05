@@ -1,5 +1,7 @@
 process.loadEnvFile()
 
+/** Create .env file with next variables */
+
 export const DB_SOURCE = process.env.DB_SOURCE
 
 export const POSTGRES_USERNAME = process.env.POSTGRES_USERNAME
