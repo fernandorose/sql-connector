@@ -3,8 +3,8 @@ import {
   POSTGRES_DATABASE_NAME,
   POSTGRES_PASSWORD,
   POSTGRES_USERNAME,
-} from '../../config/config'
-import { Desti } from '../../model/destis.mod'
+} from '@config/config'
+import { EDesti } from '@modDestis/db/desti.dtb'
 
 export const PostgresDataSource = new DataSource({
   type: 'postgres',
@@ -14,7 +14,7 @@ export const PostgresDataSource = new DataSource({
   password: POSTGRES_PASSWORD,
   database: POSTGRES_DATABASE_NAME,
 
-  entities: [Desti],
+  entities: [EDesti],
 
   synchronize: true,
   dropSchema: true,
