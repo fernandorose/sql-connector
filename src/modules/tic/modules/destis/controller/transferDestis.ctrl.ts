@@ -1,8 +1,8 @@
 import { Request, Response } from 'express'
-import { IDesti } from '@modDestis/db/desti.dtb'
-import { PostgresDataSource } from '@core/start/postgresConnection'
-import { DESTIS_API_URL } from '@config/config'
-import { DestiMod } from '@modDestis/model/destis.mod'
+import { DESTIS_API_URL } from '../../../../../config/config'
+import { DestiMod } from '../model/destis.mod'
+import PostgresDataSource from '../../../../../core/start/postgresConnection'
+import { IDesti } from '../db/desti.dtb'
 
 export class TransferDestis {
   private static _instance: TransferDestis

@@ -2,13 +2,13 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "baseUrl": "./",
-    "paths": {
-      "@modules/*": ["./src/modules/*"],
-      "@modDestis/*": ["./src/modules/tic/modules/destis/*"],
-      "@config/*": ["./src/config/*"],
-      "@core/*": ["./src/core/*"]
-    },
+    // "baseUrl": "./",
+    // "paths": {
+    //   "@modules/*": ["./src/modules/*"],
+    //   "@modDestis/*": ["./src/modules/tic/modules/destis/*"],
+    //   "@config/*": ["./src/config/*"],
+    //   "@core/*": ["./src/core/*"]
+    // },
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */

@@ -1,4 +1,4 @@
-import { AppRouter as SqlRouter } from '@modules/tic/router'
+import { AppRouter as SqlRouter } from '../../modules/tic/router'
 import { Router } from 'express'
 
 export abstract class AppRouter {

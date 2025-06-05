@@ -1,6 +1,6 @@
-import { PostgresDataSource } from '@core/start/postgresConnection'
-import { BaseMod } from '@core/base/base.mod'
-import { EDesti, IDesti } from '@modDestis/db/desti.dtb'
+import { BaseMod } from '../../../../../core/base/base.mod'
+import PostgresDataSource from '../../../../../core/start/postgresConnection'
+import { EDesti, IDesti } from '../db/desti.dtb'
 
 export class DestiMod extends BaseMod<IDesti> {
   private static _instance: DestiMod

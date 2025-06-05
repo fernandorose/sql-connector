@@ -1,8 +1,6 @@
 import express, { Application } from 'express'
-import { PostgresDataSource } from '@core/start/postgresConnection'
-import { AppRouter as RootRouter } from '@core/start/root.routes'
-
-// import { SqlServerDataSource } from './core/start/sqlServerConnection'
+import { PostgresDataSource } from './core/start/postgresConnection'
+import { AppRouter as RootRouter } from './core/start/root.routes'
 
 export class App {
   private static _instance: App
