@@ -4,7 +4,7 @@ import {
   SQLSERVER_PASSWORD,
   SQLSERVER_USERNAME,
 } from '@config/config'
-import { EDesti } from '@modDestis/db/desti.dtb'
+import { EDesti } from '@modules/tic/module/destis/db/migrator.dtb'
 
 export const SqlServerDataSource = new DataSource({
   type: 'mssql',

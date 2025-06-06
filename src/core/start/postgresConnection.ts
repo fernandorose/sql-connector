@@ -4,7 +4,7 @@ import {
   POSTGRES_PASSWORD,
   POSTGRES_USERNAME,
 } from '@config/config'
-import { EDesti } from '@modDestis/db/desti.dtb'
+import { EDesti } from '@modules/tic/module/destis/db/migrator.dtb'
 
 export const PostgresDataSource = new DataSource({
   type: 'postgres',
