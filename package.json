@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently --kill-others \"tsc --watch\" \"node --watch dist/index.js\""
+    "dev": "concurrently --kill-others \"tsc --watch\" \"tsc-alias -w\" \"node --watch dist/index.js\""
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,8 @@
     "pg": "8.16.0",
     "prettier": "^3.5.3",
     "reflect-metadata": "0.2.2",
+    "ts-alias": "^0.0.7",
+    "tsc-alias": "^1.8.16",
     "typeorm": "0.3.24"
   }
 }
