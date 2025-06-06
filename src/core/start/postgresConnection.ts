@@ -3,8 +3,8 @@ import {
   POSTGRES_DATABASE_NAME,
   POSTGRES_PASSWORD,
   POSTGRES_USERNAME,
-} from '../../config/config'
-import { EDesti } from '../../modules/tic/modules/destis/db/desti.dtb'
+} from '@config/config'
+import { EDesti } from '@modDestis/db/desti.dtb'
 
 export const PostgresDataSource = new DataSource({
   type: 'postgres',

@@ -1,4 +1,4 @@
-import SqlJob from '../../modules/tic/modules/destis/job'
+import SqlJob from '@modDestis/job'
 
 export abstract class CronJob {
   public static init(): void {

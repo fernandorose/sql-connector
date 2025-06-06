@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express'
-import { TransferDestis } from '../controller/transferDestis.ctrl'
+import { TransferDestis } from '@modDestis/controller/transferDestis.ctrl'
 
 export abstract class AppRouter {
   private static _routes: Router

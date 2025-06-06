@@ -1,8 +1,9 @@
 import { Request, Response } from 'express'
-import { DESTIS_API_URL } from '../../../../../config/config'
-import { DestiMod } from '../model/destis.mod'
-import PostgresDataSource from '../../../../../core/start/postgresConnection'
-import { IDesti } from '../db/desti.dtb'
+import PostgresDataSource from '@core/start/postgresConnection'
+import { SqlServerDataSource } from '@core/start/sqlServerConnection'
+import { IDesti } from '@modDestis/db/desti.dtb'
+import { DESTIS_API_URL } from '@config/config'
+import { DestiMod } from '@modDestis/model/destis.mod'
 
 export class TransferDestis {
   private static _instance: TransferDestis
@@ -25,12 +26,14 @@ export class TransferDestis {
 
       await DestiMod.instance.clear()
 
-      await PostgresDataSource.query(
-        `TRUNCATE TABLE "F_DESTIs" RESTART IDENTITY`,
-      )
+      // await SqlServerDataSource.query(
+      //   `TRUNCATE TABLE "F_DESTIs" RESTART IDENTITY`,
+      // )
+
+      await SqlServerDataSource.query(`TRUNCATE TABLE F_DESTIs`)
 
       const NO_DATA_MESSAGE = 'No asignado'
-      const NO_DATE = '0000-01-01 00:00:00'
+      const NO_DATE = '1900-01-01 00:00:00'
 
       const newDestis: IDesti[] = []
 

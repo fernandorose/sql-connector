@@ -1,5 +1,5 @@
 import cron, { ScheduledTask, TaskOptions } from 'node-cron'
-import { TransferDestis } from '../controller/transferDestis.ctrl'
+import { TransferDestis } from '@modDestis/controller/transferDestis.ctrl'
 
 export abstract class SqlJob {
   private static _transfer8am: ScheduledTask | undefined = undefined

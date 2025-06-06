@@ -1,6 +1,7 @@
 import express, { Application } from 'express'
-import { PostgresDataSource } from './core/start/postgresConnection'
-import { AppRouter as RootRouter } from './core/start/root.routes'
+import { AppRouter as RootRouter } from '@core/start/root.routes'
+import { SqlServerDataSource } from '@core/start/sqlServerConnection'
+import PostgresDataSource from '@core/start/postgresConnection'
 
 export class App {
   private static _instance: App
@@ -29,6 +30,13 @@ export class App {
 
   private conn() {
     PostgresDataSource.initialize()
+      .then(() => {
+        console.log('Postgres Data Source has been initialized!')
+      })
+      .catch((err) => {
+        console.error('Error during Data Source initialization', err)
+      })
+    SqlServerDataSource.initialize()
       .then(() => {
         console.log('Postgres Data Source has been initialized!')
       })

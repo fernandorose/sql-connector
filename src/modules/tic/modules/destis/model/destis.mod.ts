@@ -1,12 +1,13 @@
-import { BaseMod } from '../../../../../core/base/base.mod'
-import PostgresDataSource from '../../../../../core/start/postgresConnection'
-import { EDesti, IDesti } from '../db/desti.dtb'
+import { BaseMod } from '@core/base/base.mod'
+import PostgresDataSource from '@core/start/postgresConnection'
+import { EDesti, IDesti } from '@modDestis/db/desti.dtb'
+import { SqlServerDataSource } from '@core/start/sqlServerConnection'
 
 export class DestiMod extends BaseMod<IDesti> {
   private static _instance: DestiMod
 
   public constructor() {
-    super(EDesti, PostgresDataSource)
+    super(EDesti, SqlServerDataSource)
   }
 
   public static get instance(): DestiMod {
