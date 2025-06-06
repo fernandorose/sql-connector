@@ -55,7 +55,7 @@ export class EDesti {
   @Column({ type: 'text', nullable: true })
   DX_Descripcion: string
 
-  @Column({ nullable: true })
+  @Column({ type: 'text', nullable: true })
   DX_Ahorros: string
 
   @Column({ nullable: true })

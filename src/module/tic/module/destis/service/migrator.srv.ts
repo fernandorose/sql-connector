@@ -1,15 +1,15 @@
 import { Request, Response } from 'express'
 import PostgresDataSource from '@core/start/postgresConnection'
 import { SqlServerDataSource } from '@core/start/sqlServerConnection'
-import { IDesti } from '@modDestis/db/desti.dtb'
+import { IDesti } from '@modules/tic/module/destis/db/migrator.dtb'
 import { DESTIS_API_URL } from '@config/config'
-import { DestiMod } from '@modDestis/model/destis.mod'
+import { MigratorMod } from '@modDestis/model/migrator.mod'
 
-export class TransferDestis {
-  private static _instance: TransferDestis
+export class MigratorSrv {
+  private static _instance: MigratorSrv
 
-  public static get instance(): TransferDestis {
-    return this._instance instanceof TransferDestis
+  public static get instance(): MigratorSrv {
+    return this._instance instanceof MigratorSrv
       ? this._instance
       : (this._instance = new this())
   }
@@ -24,13 +24,13 @@ export class TransferDestis {
       const response = await fetch(DESTIS_API_URL!)
       const destis = await response.json()
 
-      await DestiMod.instance.clear()
+      await MigratorMod.instance.clear()
 
-      // await SqlServerDataSource.query(
-      //   `TRUNCATE TABLE "F_DESTIs" RESTART IDENTITY`,
-      // )
+      await PostgresDataSource.query(
+        `TRUNCATE TABLE "F_DESTIs" RESTART IDENTITY`,
+      )
 
-      await SqlServerDataSource.query(`TRUNCATE TABLE F_DESTIs`)
+      // await PostgresDataSource.query(`TRUNCATE TABLE F_DESTIs`)
 
       const NO_DATA_MESSAGE = 'No asignado'
       const NO_DATE = '1900-01-01 00:00:00'
@@ -38,7 +38,7 @@ export class TransferDestis {
       const newDestis: IDesti[] = []
 
       for (let desti of destis) {
-        const create = await DestiMod.instance.create({
+        const create = await MigratorMod.instance.create({
           DX_Folio: desti.key || NO_DATA_MESSAGE,
           DX_Tipo:
             desti.state_data?.type_details?.[0]?.title || NO_DATA_MESSAGE,
@@ -85,7 +85,6 @@ export class TransferDestis {
         })
         newDestis.push(create)
       }
-
       return newDestis
     } catch (err) {
       console.error(err)

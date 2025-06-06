@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express'
-import { TransferDestis } from '@modDestis/controller/transferDestis.ctrl'
+import { MigratorSrv } from '@modDestis/service/migrator.srv'
 
 export abstract class AppRouter {
   private static _routes: Router
@@ -14,7 +14,7 @@ export abstract class AppRouter {
       `/transfer`,
       [],
       (req: Request, res: Response) =>
-        void TransferDestis.instance.transferRequest(req, res),
+        void MigratorSrv.instance.transferRequest(req, res),
     )
     return this._routes
   }

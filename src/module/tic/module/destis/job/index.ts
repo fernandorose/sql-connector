@@ -1,5 +1,5 @@
 import cron, { ScheduledTask, TaskOptions } from 'node-cron'
-import { TransferDestis } from '@modDestis/controller/transferDestis.ctrl'
+import { MigratorSrv } from '@modDestis/service/migrator.srv'
 
 export abstract class SqlJob {
   private static _transfer8am: ScheduledTask | undefined = undefined
@@ -31,7 +31,7 @@ export abstract class SqlJob {
 
   public static async transfer(): Promise<boolean> {
     try {
-      await TransferDestis.instance.transfer()
+      await MigratorSrv.instance.transfer()
       return true
     } catch (error: unknown) {
       return false
