@@ -1,11 +1,17 @@
 import { Request, Response } from 'express'
-import { DESTIS_API_URL } from '../../../../../config/config'
+import { DESTIS_API_URL } from '../../../../../config/config.cfg'
 import { MigratorMod } from '../model/migrator.mod'
-import PostgresDataSource from '../../../../../core/start/postgresConnection'
-import { IDesti } from '../db/migrator.dtb'
+import { EDesti, IDesti } from '../db/migrator.dtb'
+import { SqlServerDataSource } from '../../../../../core/start/connect.ind'
+import { BaseSrv } from '../../../../../core/base/base.srv'
+import { MigratorRsv } from '../resolver/migrator.rsv'
 
-export class MigratorSrv {
+export class MigratorSrv extends BaseSrv<IDesti> {
   private static _instance: MigratorSrv
+
+  public constructor() {
+    super(MigratorRsv.instance)
+  }
 
   public static get instance(): MigratorSrv {
     return this._instance instanceof MigratorSrv
@@ -13,27 +19,15 @@ export class MigratorSrv {
       : (this._instance = new this())
   }
 
-  public async transferRequest(_req: Request, res: Response): Promise<void> {
-    const destis = await this.transfer()
-    res.status(200).json(destis)
-  }
-
   public async transfer() {
     try {
       const response = await fetch(DESTIS_API_URL!)
       const destis = await response.json()
-
       await MigratorMod.instance.clear()
-
-      await PostgresDataSource.query(
-        `TRUNCATE TABLE "F_DESTIs" RESTART IDENTITY`,
-      )
-
+      await SqlServerDataSource.query(`TRUNCATE TABLE F_DESTIs`)
       const NO_DATA_MESSAGE = 'No asignado'
       const NO_DATE = '1900-01-01 00:00:00'
-
       const newDestis: IDesti[] = []
-
       for (let desti of destis) {
         const create = await MigratorMod.instance.create({
           DX_Folio: desti.key || NO_DATA_MESSAGE,
@@ -81,6 +75,7 @@ export class MigratorSrv {
           DX_Fecha_Fin_Evaluacion: new Date(desti.evaluation?.dtend || NO_DATE),
         })
         newDestis.push(create)
+        await MigratorMod.instance.save(create)
       }
       return newDestis
     } catch (err) {
