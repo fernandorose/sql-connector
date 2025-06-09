@@ -19,8 +19,7 @@ export class BaseMod<T extends ObjectLiteral> {
   }
 
   public async create(data: DeepPartial<T>): Promise<T> {
-    const entity = this.repository.create(data)
-    return await this.repository.save(entity)
+    return this.repository.create(data)
   }
 
   public async findAll(): Promise<T[]> {
