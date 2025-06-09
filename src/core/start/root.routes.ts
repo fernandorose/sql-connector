@@ -1,4 +1,4 @@
-import { AppRouter as SqlRouter } from '@modTic/router'
+import { AppRouter as SqlRouter } from '../../module/tic/router'
 import { Router } from 'express'
 
 export abstract class AppRouter {

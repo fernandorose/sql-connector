@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express'
-import { MigratorSrv } from '@modDestis/service/migrator.srv'
+import { MigratorSrv } from '../service/migrator.srv'
 
 export abstract class AppRouter {
   private static _routes: Router

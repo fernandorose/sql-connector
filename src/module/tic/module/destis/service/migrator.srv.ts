@@ -1,9 +1,8 @@
 import { Request, Response } from 'express'
-import PostgresDataSource from '@core/start/postgresConnection'
-import { SqlServerDataSource } from '@core/start/sqlServerConnection'
-import { IDesti } from '@modules/tic/module/destis/db/migrator.dtb'
-import { DESTIS_API_URL } from '@config/config'
-import { MigratorMod } from '@modDestis/model/migrator.mod'
+import { DESTIS_API_URL } from '../../../../../config/config'
+import { MigratorMod } from '../model/migrator.mod'
+import PostgresDataSource from '../../../../../core/start/postgresConnection'
+import { IDesti } from '../db/migrator.dtb'
 
 export class MigratorSrv {
   private static _instance: MigratorSrv
@@ -29,8 +28,6 @@ export class MigratorSrv {
       await PostgresDataSource.query(
         `TRUNCATE TABLE "F_DESTIs" RESTART IDENTITY`,
       )
-
-      // await PostgresDataSource.query(`TRUNCATE TABLE F_DESTIs`)
 
       const NO_DATA_MESSAGE = 'No asignado'
       const NO_DATE = '1900-01-01 00:00:00'

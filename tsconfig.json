@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
-    "paths": {
-      "@modules/*": ["./module/*"],
-      "@modTic/*": ["./module/tic/*"],
-      "@modDestis/*": ["./module/tic/module/destis/*"],
-      "@config/*": ["./config/*"],
-      "@core/*": ["./core/*"]
-    },
+    // "baseUrl": "./src",
+    // "paths": {
+    //   "@modules/*": ["./module/*"],
+    //   "@modTic/*": ["./module/tic/*"],
+    //   "@modDestis/*": ["./module/tic/module/destis/*"],
+    //   "@config/*": ["./config/*"],
+    //   "@core/*": ["./core/*"]
+    // },
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es2016" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
@@ -20,6 +20,5 @@
     "strict": true /* Enable all strict type-checking options. */,
     "strictPropertyInitialization": false /* Check for class properties that are declared but not set in the constructor. */,
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
-  },
-  "exclude": ["node_modules", "build"]
+  }
 }

@@ -1,10 +1,7 @@
 import { DataSource } from 'typeorm'
-import {
-  POSTGRES_DATABASE_NAME,
-  POSTGRES_PASSWORD,
-  POSTGRES_USERNAME,
-} from '@config/config'
-import { EDesti } from '@modules/tic/module/destis/db/migrator.dtb'
+import { POSTGRES_DATABASE_NAME, POSTGRES_PASSWORD, POSTGRES_USERNAME } from '../../config/config'
+import { EDesti } from '../../module/tic/module/destis/db/migrator.dtb'
+
 
 export const PostgresDataSource = new DataSource({
   type: 'postgres',

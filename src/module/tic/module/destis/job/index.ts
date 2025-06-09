@@ -1,5 +1,5 @@
 import cron, { ScheduledTask, TaskOptions } from 'node-cron'
-import { MigratorSrv } from '@modDestis/service/migrator.srv'
+import { MigratorSrv } from '../service/migrator.srv'
 
 export abstract class SqlJob {
   private static _transfer8am: ScheduledTask | undefined = undefined

@@ -1,5 +1,5 @@
 services:
-  db:
+  postgres:
     image: postgres:17.5
     environment:
       POSTGRES_USER: admin
@@ -8,7 +8,33 @@ services:
     ports:
       - '5432:5432'
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
+
+  mysql:
+    image: mysql:9.3
+    environment:
+      MYSQL_ROOT_PASSWORD: Str0ngP@ssword!
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: Admin123
+      MYSQL_DATABASE: indelpro
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  # mssql:
+  #   image: mcr.microsoft.com/mssql/server:2022-latest
+  #   environment:
+  #     ACCEPT_EULA: 'Y'
+  #     SA_PASSWORD: 'Str0ngP@ssword!'
+  #     MSSQL_PID: 'Express'
+  #   ports:
+  #     - '1433:1433'
+  #   volumes:
+  #     - mssql_data:/var/opt/mssql
+  #   restart: unless-stopped
 
 volumes:
-  db_data:
+  pg_data:
+  mysql_data:
+  # mssql_data:
