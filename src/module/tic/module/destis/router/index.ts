@@ -1,1 +1,2 @@
-export * from './destis.routes'
+export * from './migrator.routes'
+export * from './index.routes'
