@@ -1,0 +1,6 @@
+export * from './base.ctrl'
+export * from './base.map'
+export * from './base.mod'
+export * from './base.routes'
+export * from './base.rsv'
+export * from './base.srv'
