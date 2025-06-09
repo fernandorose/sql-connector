@@ -1,4 +1,4 @@
-import { AppRouter as SqlRouter } from '../../module/tic/router'
+import { AppRouter as TicRouter } from '../../module/tic/router'
 import { Router } from 'express'
 
 export abstract class AppRouter {
@@ -10,7 +10,7 @@ export abstract class AppRouter {
 
   public static config(): Router {
     this._routes = Router()
-    this._routes.use(`/tic`, [], SqlRouter.config())
+    this._routes.use(`/tic`, [], TicRouter.config())
     return this._routes
   }
 }
