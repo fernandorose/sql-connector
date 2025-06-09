@@ -1,7 +1,6 @@
 import { Entity, PrimaryColumn, Column, PrimaryGeneratedColumn } from 'typeorm'
 
 export interface IDesti extends Document {
-  CN_Numero?: number | string
   DX_Folio: string
   DX_Tipo?: string
   DX_Estado?: string
@@ -34,90 +33,87 @@ export interface IDesti extends Document {
 
 @Entity({ name: 'F_DESTIs' })
 export class EDesti {
-  @PrimaryGeneratedColumn('identity')
-  CN_Numero: number
-
-  @Column({})
+  @PrimaryColumn()
   DX_Folio: string
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Tipo: string
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Estado: string
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Etapa: string
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Titulo: string
 
-  @Column({ type: 'text', nullable: true })
+  @Column({ type: 'text', nullable: false })
   DX_Descripcion: string
 
-  @Column({ type: 'text', nullable: true })
+  @Column({ type: 'text', nullable: false })
   DX_Ahorros: string
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Ahorro_Dolares: string
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Ahorros_Horas: string
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Area: string
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Autor: string
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Responsable: string
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Fecha_Creacion: Date
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Fecha_Act: Date
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Calificacion: string
 
-  @Column({ type: 'text', nullable: true })
+  @Column({ type: 'text', nullable: false })
   DX_Comentario_Canc: string
 
-  @Column({ type: 'text', nullable: true })
+  @Column({ type: 'text', nullable: false })
   DX_Comentario_Rev: string
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Fecha_Fin_Revision: Date
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Fecha_Estimada: Date
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Hora_Estimada: string
 
-  @Column({ type: 'text', nullable: true })
+  @Column({ type: 'text', nullable: false })
   DX_Comentario_Analisis: string
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Fecha_Fin_Analisis: Date
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Hora_Desarrollo: string
 
-  @Column({ type: 'text', nullable: true })
+  @Column({ type: 'text', nullable: false })
   DX_Comentario_Des: string
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Fecha_Fin_Desarrollo: Date
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Fecha_Fin_Aprobacion: Date
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Fecha_Fin_Produccion: Date
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   DX_Fecha_Fin_Evaluacion: Date
 }
