@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently --kill-others \"tsc --watch\" \"tsc-alias -w\" \"node --watch build/core/start/index.js\""
+    "dev": "concurrently --kill-others \"tsc --watch\" \"tsc-alias -w\" \"node --watch build/index.js\""
   },
   "keywords": [],
   "author": "",
