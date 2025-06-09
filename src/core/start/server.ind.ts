@@ -1,53 +1,65 @@
-import express, { Application } from 'express'
+import express, { Application, Router } from 'express'
 import { AppRouter as RootRouter } from './root.routes'
-import { MySqlDataSource } from './mySqlConnection'
-import PostgresDataSource from './postgresConnection'
+import { SqlServerDataSource } from './connect.ind'
+import http, { createServer, Server } from 'http'
+import { PORT } from '../../config'
 
-export class App {
-  private static _instance: App
-  public app: Application
+export abstract class AppServer {
+  private static _app: Application
+  private static _httpSrv: http.Server
+  private static _port: number = PORT
+  private static _router: Router
 
-  private constructor() {
-    this.app = express()
-    this.middlewares()
-    this.routes()
-    this.conn()
+  private _allowStatic(): string {
+    return ``
   }
 
-  public static get instance(): App {
-    return this._instance instanceof App
-      ? this._instance
-      : (this._instance = new this())
+  public static async run(): Promise<void> {
+    await this._init()
+    this._middlewares()
+    this._routing()
+    this._conn()
+    this._listen()
   }
 
-  private middlewares() {
-    this.app.use(express.json())
+  private static async _init(): Promise<void> {
+    this._app = express()
+    this._httpSrv = createServer(this._app as unknown as Server)
+    this._router = Router()
   }
 
-  private routes() {
-    this.app.use('/api', RootRouter.config())
+  private static _middlewares() {
+    this._app.use(express.json())
   }
 
-  private async conn() {
-    PostgresDataSource.initialize()
-      .then(() => {
-        console.log('Postgres Data Source has been initialized!')
-      })
-      .catch((err) => {
-        console.error('Error during Data Source initialization', err)
-      })
-    MySqlDataSource.initialize()
-      .then(() => {
-        console.log('MySQL Data Source has been initialized!')
-      })
-      .catch((err) => {
-        console.error('Error during Data Source initialization', err)
-      })
+  private static _routing() {
+    this._router.use('/api', RootRouter.config())
+    this._app.use(this._router)
   }
 
-  public listen(port: number) {
-    this.app.listen(port, () => {
-      console.log(`App running on port ${port}`)
+  private static async _conn() {
+    try {
+      await SqlServerDataSource.initialize()
+      console.log('Postgres Data Source has been initialized!')
+
+      const tables = await SqlServerDataSource.query(`
+        SELECT TABLE_SCHEMA, TABLE_NAME
+        FROM INFORMATION_SCHEMA.TABLES
+        WHERE TABLE_NAME = 'F_DESTIs'
+      `)
+      console.log(tables)
+      const currentDB = await SqlServerDataSource.query(
+        'SELECT DB_NAME() as db_name',
+      )
+      console.log('Base de datos conectada:', currentDB)
+    } catch (err) {
+      console.error('Error during Data Source initialization', err)
+    }
+  }
+
+  public static _listen(): void {
+    this._httpSrv.listen(this._port, (): void => {
+      console.log(`Server running on port ${this._port}`)
     })
   }
 }
