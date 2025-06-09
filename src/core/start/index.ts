@@ -1,4 +1,4 @@
-import { App } from './server.ind'
-
-const APP = App.instance
-APP.listen(3000)
+export * from './connect.ind'
+export * from './cron.ind'
+export * from './root.routes'
+export * from './server.ind'
