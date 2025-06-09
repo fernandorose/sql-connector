@@ -1,5 +1,5 @@
 import { BaseMod } from "../../../../../core/base/base.mod"
-import PostgresDataSource from "../../../../../core/start/postgresConnection"
+import { SqlServerDataSource } from "../../../../../core/start/connect.ind"
 import { EDesti, IDesti } from "../db/migrator.dtb"
 
 
@@ -7,7 +7,7 @@ export class MigratorMod extends BaseMod<IDesti> {
   private static _instance: MigratorMod
 
   public constructor() {
-    super(EDesti, PostgresDataSource)
+    super(EDesti, SqlServerDataSource)
   }
 
   public static get instance(): MigratorMod {
