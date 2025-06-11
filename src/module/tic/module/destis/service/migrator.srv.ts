@@ -1,9 +1,8 @@
-import { Request, Response } from 'express'
 import { DESTIS_API_URL } from '../../../../../config/config.cfg'
-import { MigratorMod } from '../model/migrator.mod'
-import { EDesti, IDesti } from '../db/migrator.dtb'
-import { SqlServerDataSource } from '../../../../../core/start/connect.ind'
 import { BaseSrv } from '../../../../../core/base/base.srv'
+import { SqlServerDataSource } from '../../../../../core/start/connect.ind'
+import { IDesti } from '../db/migrator.dtb'
+import { MigratorMod } from '../model/migrator.mod'
 import { MigratorRsv } from '../resolver/migrator.rsv'
 
 export class MigratorSrv extends BaseSrv<IDesti> {

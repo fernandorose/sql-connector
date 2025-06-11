@@ -1,4 +1,4 @@
-import { Entity, PrimaryColumn, Column, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, PrimaryColumn } from 'typeorm'
 
 export interface IDesti extends Document {
   DX_Folio: string
@@ -36,84 +36,84 @@ export class EDesti {
   @PrimaryColumn()
   DX_Folio: string
 
-  @Column({ nullable: false })
+  @Column()
   DX_Tipo: string
 
-  @Column({ nullable: false })
+  @Column()
   DX_Estado: string
 
-  @Column({ nullable: false })
+  @Column()
   DX_Etapa: string
 
-  @Column({ nullable: false })
+  @Column()
   DX_Titulo: string
 
-  @Column({ type: 'text', nullable: false })
+  @Column({ type: 'text' })
   DX_Descripcion: string
 
-  @Column({ type: 'text', nullable: false })
+  @Column({ type: 'text' })
   DX_Ahorros: string
 
-  @Column({ nullable: false })
+  @Column()
   DX_Ahorro_Dolares: string
 
-  @Column({ nullable: false })
+  @Column()
   DX_Ahorros_Horas: string
 
-  @Column({ nullable: false })
+  @Column()
   DX_Area: string
 
-  @Column({ nullable: false })
+  @Column()
   DX_Autor: string
 
-  @Column({ nullable: false })
+  @Column()
   DX_Responsable: string
 
-  @Column({ nullable: false })
+  @Column()
   DX_Fecha_Creacion: Date
 
-  @Column({ nullable: false })
+  @Column()
   DX_Fecha_Act: Date
 
-  @Column({ nullable: false })
+  @Column()
   DX_Calificacion: string
 
-  @Column({ type: 'text', nullable: false })
+  @Column({ type: 'text' })
   DX_Comentario_Canc: string
 
-  @Column({ type: 'text', nullable: false })
+  @Column({ type: 'text' })
   DX_Comentario_Rev: string
 
-  @Column({ nullable: false })
+  @Column()
   DX_Fecha_Fin_Revision: Date
 
-  @Column({ nullable: false })
+  @Column()
   DX_Fecha_Estimada: Date
 
-  @Column({ nullable: false })
+  @Column()
   DX_Hora_Estimada: string
 
-  @Column({ type: 'text', nullable: false })
+  @Column({ type: 'text' })
   DX_Comentario_Analisis: string
 
-  @Column({ nullable: false })
+  @Column()
   DX_Fecha_Fin_Analisis: Date
 
-  @Column({ nullable: false })
+  @Column()
   DX_Hora_Desarrollo: string
 
-  @Column({ type: 'text', nullable: false })
+  @Column({ type: 'text' })
   DX_Comentario_Des: string
 
-  @Column({ nullable: false })
+  @Column()
   DX_Fecha_Fin_Desarrollo: Date
 
-  @Column({ nullable: false })
+  @Column()
   DX_Fecha_Fin_Aprobacion: Date
 
-  @Column({ nullable: false })
+  @Column()
   DX_Fecha_Fin_Produccion: Date
 
-  @Column({ nullable: false })
+  @Column()
   DX_Fecha_Fin_Evaluacion: Date
 }

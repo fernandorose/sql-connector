@@ -1,8 +1,8 @@
 import express, { Application, Router } from 'express'
-import { AppRouter as RootRouter } from './root.routes'
-import { SqlServerDataSource } from './connect.ind'
 import http, { createServer, Server } from 'http'
 import { PORT } from '../../config'
+import { SqlServerDataSource } from './connect.ind'
+import { AppRouter as RootRouter } from './root.routes'
 
 export abstract class AppServer {
   private static _app: Application

@@ -1,4 +1,4 @@
-import cron, { ScheduledTask, TaskOptions } from 'node-cron'
+import cron, { ScheduledTask } from 'node-cron'
 import { MigratorSrv } from '../service/migrator.srv'
 
 export abstract class SqlJob {

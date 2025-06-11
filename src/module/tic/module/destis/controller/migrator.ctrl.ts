@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
-import { BaseCtrl } from "../../../../../core/base/base.ctrl";
-import { EDesti, IDesti } from "../db/migrator.dtb";
-import { MigratorSrv } from "../service/migrator.srv";
+import { Request, Response } from 'express'
+import { BaseCtrl } from '../../../../../core/base/base.ctrl'
+import { IDesti } from '../db/migrator.dtb'
+import { MigratorSrv } from '../service/migrator.srv'
 
 export class MigratorCtrl extends BaseCtrl<IDesti> {
   private static _instance: MigratorCtrl
@@ -16,7 +16,7 @@ export class MigratorCtrl extends BaseCtrl<IDesti> {
       : (this._instance = new this())
   }
 
-  public async migrate(req: Request, res: Response ): Promise<Response>{
+  public async migrate(req: Request, res: Response): Promise<Response> {
     const data = await (this.srv as MigratorSrv).transfer()
     return res.json(data)
   }

@@ -1,8 +1,7 @@
 import { Request, Response, Router } from 'express'
-import { MigratorSrv } from '../service/migrator.srv'
 import { BaseRouter } from '../../../../../core/base/base.routes'
-import { IDesti } from '../db/migrator.dtb'
 import { MigratorCtrl } from '../controller/migrator.ctrl'
+import { IDesti } from '../db/migrator.dtb'
 
 export class MigratorRouter extends BaseRouter<IDesti> {
   private static _instance: MigratorRouter

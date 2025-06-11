@@ -1,7 +1,7 @@
-import { Request, Response, Router } from 'express'
-import MigratorRouter from './migrator.routes'
+import { Router } from 'express'
 import { BaseRouter } from '../../../../../core/base/base.routes'
 import { IDesti } from '../db/migrator.dtb'
+import MigratorRouter from './migrator.routes'
 
 export abstract class AppRouter extends BaseRouter<IDesti> {
   private static _routes: Router

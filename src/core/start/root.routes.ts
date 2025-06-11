@@ -1,5 +1,5 @@
-import { AppRouter as TicRouter } from '../../module/tic/router'
 import { Router } from 'express'
+import { AppRouter as TicRouter } from '../../module/tic/router'
 
 export abstract class AppRouter {
   private static _routes: Router

@@ -1,7 +1,6 @@
-import { BaseMod } from "../../../../../core/base/base.mod"
-import { SqlServerDataSource } from "../../../../../core/start/connect.ind"
-import { EDesti, IDesti } from "../db/migrator.dtb"
-
+import { BaseMod } from '../../../../../core/base/base.mod'
+import { SqlServerDataSource } from '../../../../../core/start/connect.ind'
+import { EDesti, IDesti } from '../db/migrator.dtb'
 
 export class MigratorMod extends BaseMod<IDesti> {
   private static _instance: MigratorMod
