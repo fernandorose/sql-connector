@@ -1,40 +1,17 @@
 services:
-  postgres:
-    image: postgres:17.5
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: Admin123
-      POSTGRES_DB: indelpro
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: 'Str0ngP@ssword!'
+      MSSQL_PID: 'Express'
     ports:
-      - '5432:5432'
+      - '1433:1433'
     volumes:
-      - pg_data:/var/lib/postgresql/data
-
-  mysql:
-    image: mysql:9.3
-    environment:
-      MYSQL_ROOT_PASSWORD: Str0ngP@ssword!
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: Admin123
-      MYSQL_DATABASE: indelpro
-    ports:
-      - '3306:3306'
-    volumes:
-      - mysql_data:/var/lib/mysql
-
-  # mssql:
-  #   image: mcr.microsoft.com/mssql/server:2022-latest
-  #   environment:
-  #     ACCEPT_EULA: 'Y'
-  #     SA_PASSWORD: 'Str0ngP@ssword!'
-  #     MSSQL_PID: 'Express'
-  #   ports:
-  #     - '1433:1433'
-  #   volumes:
-  #     - mssql_data:/var/opt/mssql
-  #   restart: unless-stopped
+      - mssql_data:/var/opt/mssql
+      - ./init.sql:/init.sql
+    restart: unless-stopped
 
 volumes:
-  pg_data:
-  mysql_data:
-  # mssql_data:
+  mssql_data:
