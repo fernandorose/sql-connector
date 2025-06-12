@@ -1,5 +1,5 @@
+import { AppRouter as DestisRouter } from '@modDestis/router'
 import { Router } from 'express'
-import { AppRouter as DestisRouter } from '../module/destis/router/index.routes'
 
 export abstract class AppRouter {
   private static _routes: Router
