@@ -2,6 +2,7 @@ import express, { Application, Router } from 'express'
 import http, { createServer, Server } from 'http'
 import { PORT } from '../../config'
 import { SqlServerDataSource } from './connect.ind'
+import CronJob from './cron.ind'
 import { AppRouter as RootRouter } from './root.routes'
 
 export abstract class AppServer {
@@ -26,6 +27,7 @@ export abstract class AppServer {
     this._app = express()
     this._httpSrv = createServer(this._app as unknown as Server)
     this._router = Router()
+    CronJob.init()
   }
 
   private static _middlewares() {
@@ -41,7 +43,7 @@ export abstract class AppServer {
     try {
       await SqlServerDataSource.initialize()
       console.log('Postgres Data Source has been initialized!')
-
+      // await SqlServerDataSource.query(`TRUNCATE TABLE F_DESTIs`)
       const tables = await SqlServerDataSource.query(`
         SELECT TABLE_SCHEMA, TABLE_NAME
         FROM INFORMATION_SCHEMA.TABLES
