@@ -1,6 +1,6 @@
-import { ObjectLiteral } from 'typeorm'
-import { BaseCtrl } from './base.ctrl'
+import { BaseCtrl } from '@core/base'
 import { Router } from 'express'
+import { ObjectLiteral } from 'typeorm'
 
 export abstract class BaseRouter<T extends ObjectLiteral> {
   public routes: Router

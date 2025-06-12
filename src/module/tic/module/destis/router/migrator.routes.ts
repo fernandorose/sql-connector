@@ -1,7 +1,7 @@
+import { BaseRouter } from '@core/base'
+import { MigratorCtrl } from '@modDestis/controller'
+import { IDesti } from '@modDestis/db'
 import { Request, Response, Router } from 'express'
-import { BaseRouter } from '../../../../../core/base/base.routes'
-import { MigratorCtrl } from '../controller/migrator.ctrl'
-import { IDesti } from '../db/migrator.dtb'
 
 export class MigratorRouter extends BaseRouter<IDesti> {
   private static _instance: MigratorRouter

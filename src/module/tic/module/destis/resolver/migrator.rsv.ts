@@ -1,6 +1,6 @@
-import { BaseRsv } from '../../../../../core/base/base.rsv'
-import { IDesti } from '../db/migrator.dtb'
-import { MigratorMod } from '../model/migrator.mod'
+import { BaseRsv } from '@core/base'
+import { IDesti } from '@modDestis/db'
+import { MigratorMod } from '@modDestis/model'
 
 export class MigratorRsv extends BaseRsv<IDesti> {
   private static _instance: MigratorRsv

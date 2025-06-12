@@ -1,9 +1,9 @@
-import { DESTIS_API_URL } from '../../../../../config/config.cfg'
-import { BaseSrv } from '../../../../../core/base/base.srv'
-import { SqlServerDataSource } from '../../../../../core/start'
-import { IDesti } from '../db/migrator.dtb'
-import { MigratorMod } from '../model/migrator.mod'
-import { MigratorRsv } from '../resolver/migrator.rsv'
+import { DESTIS_API_URL } from '@config/config.cfg'
+import { BaseSrv } from '@core/base'
+import { SqlServerDataSource } from '@core/start'
+import { IDesti } from '@modDestis/db'
+import { MigratorMod } from '@modDestis/model'
+import { MigratorRsv } from '@modDestis/resolver'
 
 export class MigratorSrv extends BaseSrv<IDesti> {
   private static _instance: MigratorSrv

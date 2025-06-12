@@ -1,7 +1,7 @@
+import { BaseCtrl } from '@core/base'
+import { IDesti } from '@modDestis/db'
+import { MigratorSrv } from '@modDestis/service'
 import { Request, Response } from 'express'
-import { BaseCtrl } from '../../../../../core/base/base.ctrl'
-import { IDesti } from '../db/migrator.dtb'
-import { MigratorSrv } from '../service/migrator.srv'
 
 export class MigratorCtrl extends BaseCtrl<IDesti> {
   private static _instance: MigratorCtrl

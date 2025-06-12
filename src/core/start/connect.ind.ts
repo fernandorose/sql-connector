@@ -1,11 +1,12 @@
 import { DataSource } from 'typeorm'
+
 import {
   SQLSERVER_DATABASE_NAME,
   SQLSERVER_PASSWORD,
   SQLSERVER_SERVER,
   SQLSERVER_USERNAME,
-} from '../../config/config.cfg'
-import { EDesti } from '../../module/tic/module/destis/db/migrator.dtb'
+} from '@config/config.cfg'
+import { EDesti } from '@modules/tic/module/destis/db'
 
 export const SqlServerDataSource = new DataSource({
   type: 'mssql',
