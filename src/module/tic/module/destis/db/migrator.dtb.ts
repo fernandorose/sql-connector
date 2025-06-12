@@ -9,21 +9,21 @@ export interface IDesti extends Document {
   DX_Descripcion?: string
   DX_Ahorros?: string
   DX_Ahorro_Dolares?: string
-  DX_Ahorros_Horas?: string
+  DX_Ahorros_Horas?: number
   DX_Area?: string
   DX_Autor?: string
   DX_Responsable?: string
   DX_Fecha_Creacion?: Date
   DX_Fecha_Act?: Date
-  DX_Calificacion?: string
+  DX_Calificacion?: number
   DX_Comentario_Canc?: string
   DX_Comentario_Rev?: string
   DX_Fecha_Fin_Revision?: Date
   DX_Fecha_Estimada?: Date
-  DX_Hora_Estimada?: string
+  DX_Hora_Estimada?: number
   DX_Comentario_Analisis?: string
   DX_Fecha_Fin_Analisis?: Date
-  DX_Hora_Desarrollo?: string
+  DX_Hora_Desarrollo?: number
   DX_Comentario_Des?: string
   DX_Fecha_Fin_Desarrollo?: Date
   DX_Fecha_Fin_Aprobacion?: Date
@@ -58,7 +58,7 @@ export class EDesti {
   DX_Ahorro_Dolares: string
 
   @Column()
-  DX_Ahorros_Horas: string
+  DX_Ahorros_Horas: number
 
   @Column()
   DX_Area: string
@@ -76,7 +76,7 @@ export class EDesti {
   DX_Fecha_Act: Date
 
   @Column()
-  DX_Calificacion: string
+  DX_Calificacion: number
 
   @Column({ type: 'text' })
   DX_Comentario_Canc: string
@@ -91,7 +91,7 @@ export class EDesti {
   DX_Fecha_Estimada: Date
 
   @Column()
-  DX_Hora_Estimada: string
+  DX_Hora_Estimada: number
 
   @Column({ type: 'text' })
   DX_Comentario_Analisis: string
@@ -100,7 +100,7 @@ export class EDesti {
   DX_Fecha_Fin_Analisis: Date
 
   @Column()
-  DX_Hora_Desarrollo: string
+  DX_Hora_Desarrollo: number
 
   @Column({ type: 'text' })
   DX_Comentario_Des: string
