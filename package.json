@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently --kill-others \"tsc --watch\" \"tsc-alias -w\" \"node --watch build/index.js\""
+    "dev": "concurrently --kill-others \"tsc --watch\" \"node --watch build/index.js\""
   },
   "keywords": [],
   "author": "",
@@ -29,5 +29,12 @@
     "ts-alias": "^0.0.7",
     "tsc-alias": "^1.8.16",
     "typeorm": "0.3.24"
+  },
+  "_moduleAliases": {
+    "@modules": "./build/module/",
+    "@modTic": "./build/module/tic/",
+    "@modDestis": "./build/module/tic/module/destis/",
+    "@config": "./build/config/",
+    "@core": "./build/core/"
   }
 }
