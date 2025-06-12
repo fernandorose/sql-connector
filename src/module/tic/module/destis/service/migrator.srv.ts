@@ -1,6 +1,6 @@
 import { DESTIS_API_URL } from '../../../../../config/config.cfg'
 import { BaseSrv } from '../../../../../core/base/base.srv'
-import { SqlServerDataSource } from '../../../../../core/start/connect.ind'
+import { SqlServerDataSource } from '../../../../../core/start'
 import { IDesti } from '../db/migrator.dtb'
 import { MigratorMod } from '../model/migrator.mod'
 import { MigratorRsv } from '../resolver/migrator.rsv'
@@ -22,7 +22,6 @@ export class MigratorSrv extends BaseSrv<IDesti> {
     try {
       const response = await fetch(DESTIS_API_URL!)
       const destis = await response.json()
-      await MigratorMod.instance.clear()
       await SqlServerDataSource.query(`TRUNCATE TABLE F_DESTIs`)
       const NO_DATA_MESSAGE = 'No asignado'
       const NO_DATE = '1900-01-01 00:00:00'
@@ -40,7 +39,7 @@ export class MigratorSrv extends BaseSrv<IDesti> {
           DX_Descripcion: desti.detail_data?.description || NO_DATA_MESSAGE,
           DX_Ahorros: desti.detail_data?.saving || NO_DATA_MESSAGE,
           DX_Ahorro_Dolares: desti.detail_data?.money || NO_DATA_MESSAGE,
-          DX_Ahorros_Horas: desti.detail_data?.hours || NO_DATA_MESSAGE,
+          DX_Ahorros_Horas: desti.detail_data?.hours || 0,
           DX_Area:
             desti.corporate_data?.area_details?.[0]?.title || NO_DATA_MESSAGE,
           DX_Autor:
@@ -51,18 +50,17 @@ export class MigratorSrv extends BaseSrv<IDesti> {
             NO_DATA_MESSAGE,
           DX_Fecha_Creacion: new Date(desti.created || NO_DATE),
           DX_Fecha_Act: new Date(desti.updated || NO_DATE),
-          DX_Calificacion: desti.retro_details?.[0]?.star || NO_DATA_MESSAGE,
+          DX_Calificacion: desti.retro_details?.[0]?.star || 0,
           DX_Comentario_Canc: desti.review?.reason || NO_DATA_MESSAGE,
           DX_Comentario_Rev: desti.review?.motive || NO_DATA_MESSAGE,
           DX_Fecha_Fin_Revision: new Date(desti.review?.dtend || NO_DATE),
           DX_Fecha_Estimada: new Date(
             desti.analysis?.date_estimated || NO_DATE,
           ),
-          DX_Hora_Estimada: desti.analysis?.hour_estimated || NO_DATA_MESSAGE,
+          DX_Hora_Estimada: desti.analysis?.hour_estimated || 0,
           DX_Comentario_Analisis: desti.analysis?.motive || NO_DATA_MESSAGE,
           DX_Fecha_Fin_Analisis: new Date(desti.analysis?.dtend || NO_DATE),
-          DX_Hora_Desarrollo:
-            desti.development?.hour_development || NO_DATA_MESSAGE,
+          DX_Hora_Desarrollo: desti.development?.hour_development || 0,
           DX_Comentario_Des: desti.development?.motive || NO_DATA_MESSAGE,
           DX_Fecha_Fin_Desarrollo: new Date(
             desti.development?.dtend || NO_DATE,
